@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard - EduScheduler</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="navbar-container">
+        <a href="teacher.html" class="navbar-brand">📚 EduScheduler</a>
+        <button class="navbar-toggle" onclick="toggleNavbar()">☰</button>
+        <ul class="navbar-nav" id="navbarNav">
+            <li><a href="teacher.html" class="nav-link active">Dashboard</a></li>
+            <li><a href="#" class="nav-link" onclick="logout()">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Dashboard Content -->
+<div class="dashboard">
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h1>Welcome, <span id="userName">Teacher</span>!</h1>
+            <p>View your schedule and manage availability</p>
+        </div>
+
+        <div id="teacherAlert" class="alert"></div>
+
+        <div class="grid-2">
+            <!-- My Lectures -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>My Lectures</h2>
+                </div>
+                <div class="card-body">
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Time</th>
+                                <th>Subject</th>
+                                <th>Classroom</th>
+                            </tr>
+                            </thead>
+                            <tbody id="lecturesBody">
+                            <tr>
+                                <td colspan="4" style="text-align: center;">Loading...</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Update Availability -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Update Availability</h2>
+                </div>
+                <div class="card-body">
+                    <form id="availabilityForm">
+                        <div class="form-group">
+                            <label class="form-label" for="availability">Your Availability</label>
+                            <textarea id="availability" class="form-control" rows="5"
+                                      placeholder="e.g., Monday: 9AM-4PM&#10;Tuesday: 10AM-5PM&#10;Wednesday: 9AM-3PM"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-gradient btn-block">Update Availability</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - EduScheduler</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="navbar-container">
+        <a href="admin.html" class="navbar-brand">📚 EduScheduler</a>
+        <button class="navbar-toggle" onclick="toggleNavbar()">☰</button>
+        <ul class="navbar-nav" id="navbarNav">
+            <li><a href="admin.html" class="nav-link">Dashboard</a></li>
+            <li><a href="class.html" class="nav-link">Classes</a></li>
+            <li><a href="timetable.html" class="nav-link">Timetable</a></li>
+            <li><a href="report.html" class="nav-link active">Reports</a></li>
+            <li><a href="#" class="nav-link" onclick="logout()">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<div class="dashboard">
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h1>Reports & Notifications</h1>
+            <p>View reports and send notifications</p>
+        </div>
+
+        <div id="reportAlert" class="alert"></div>
+
+        <div class="grid-2">
+            <!-- Timetable Report -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Timetable Report</h2>
+                </div>
+                <div class="card-body">
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Time</th>
+                                <th>Teacher</th>
+                                <th>Subject</th>
+                                <th>Room</th>
+                                <th>Class</th>
+                            </tr>
+                            </thead>
+                            <tbody id="reportBody">
+                            <tr>
+                                <td colspan="6" style="text-align: center;">Loading...</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Send Notification -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Send Notification</h2>
+                </div>
+                <div class="card-body">
+                    <form id="notifyForm">
+                        <div class="form-group">
+                            <label class="form-label" for="notifyMessage">Message</label>
+                            <textarea id="notifyMessage" class="form-control" rows="5"
+                                      placeholder="Enter notification message..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-gradient btn-block">Send Notification</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+
+</html>

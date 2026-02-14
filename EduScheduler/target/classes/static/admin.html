@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - EduScheduler</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="navbar-container">
+        <a href="admin.html" class="navbar-brand">📚 EduScheduler</a>
+        <button class="navbar-toggle" onclick="toggleNavbar()">☰</button>
+        <ul class="navbar-nav" id="navbarNav">
+            <li><a href="admin.html" class="nav-link active">Dashboard</a></li>
+            <li><a href="class.html" class="nav-link">Classes</a></li>
+            <li><a href="timetable.html" class="nav-link">Timetable</a></li>
+            <li><a href="report.html" class="nav-link">Reports</a></li>
+            <li><a href="#" class="nav-link" onclick="logout()">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Dashboard Content -->
+<div class="dashboard">
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h1>Welcome, <span id="userName">Admin</span>!</h1>
+            <p>Manage your educational institution from here</p>
+        </div>
+
+        <div id="adminAlert" class="alert"></div>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">👨‍🏫</div>
+                <div class="stat-info">
+                    <h3>12</h3>
+                    <p>Teachers</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📚</div>
+                <div class="stat-info">
+                    <h3>8</h3>
+                    <p>Subjects</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🏫</div>
+                <div class="stat-info">
+                    <h3>15</h3>
+                    <p>Classrooms</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Management Forms -->
+        <div class="grid-3 mb-3">
+            <!-- Add Teacher -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Add Teacher</h2>
+                </div>
+                <div class="card-body">
+                    <form id="teacherForm">
+                        <div class="form-group">
+                            <label class="form-label" for="teacherName">Name</label>
+                            <input type="text" id="teacherName" class="form-control" placeholder="Teacher name"
+                                   required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="teacherEmail">Email</label>
+                            <input type="email" id="teacherEmail" class="form-control" placeholder="Email address"
+                                   required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="teacherAvailability">Availability</label>
+                            <input type="text" id="teacherAvailability" class="form-control"
+                                   placeholder="e.g., Mon-Fri 9AM-4PM">
+                        </div>
+                        <button type="submit" class="btn btn-gradient btn-block">Add Teacher</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Add Subject -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Add Subject</h2>
+                </div>
+                <div class="card-body">
+                    <form id="subjectForm">
+                        <div class="form-group">
+                            <label class="form-label" for="subjectName">Subject Name</label>
+                            <input type="text" id="subjectName" class="form-control" placeholder="Subject name"
+                                   required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="subjectHours">Hours/Week</label>
+                            <input type="number" id="subjectHours" class="form-control" placeholder="Hours per week"
+                                   min="1" required>
+                        </div>
+                        <button type="submit" class="btn btn-gradient btn-block">Add Subject</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Add Classroom -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Add Classroom</h2>
+                </div>
+                <div class="card-body">
+                    <form id="classroomForm">
+                        <div class="form-group">
+                            <label class="form-label" for="roomNumber">Room Number</label>
+                            <input type="text" id="roomNumber" class="form-control" placeholder="e.g., A101"
+                                   required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="roomCapacity">Capacity</label>
+                            <input type="number" id="roomCapacity" class="form-control"
+                                   placeholder="Seating capacity" min="1" required>
+                        </div>
+                        <button type="submit" class="btn btn-gradient btn-block">Add Classroom</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="grid-3">
+            <a href="class.html" class="card" style="text-decoration: none;">
+                <div class="card-body text-center">
+                    <div class="feature-icon" style="margin: 0 auto 1rem;">📋</div>
+                    <h3>Manage Classes</h3>
+                    <p style="color: var(--text-secondary);">Add and view class divisions</p>
+                </div>
+            </a>
+            <a href="timetable.html" class="card" style="text-decoration: none;">
+                <div class="card-body text-center">
+                    <div class="feature-icon" style="margin: 0 auto 1rem;">📅</div>
+                    <h3>Generate Timetable</h3>
+                    <p style="color: var(--text-secondary);">Create and manage schedules</p>
+                </div>
+            </a>
+            <a href="report.html" class="card" style="text-decoration: none;">
+                <div class="card-body text-center">
+                    <div class="feature-icon" style="margin: 0 auto 1rem;">📊</div>
+                    <h3>View Reports</h3>
+                    <p style="color: var(--text-secondary);">Reports and notifications</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+
+</html>
